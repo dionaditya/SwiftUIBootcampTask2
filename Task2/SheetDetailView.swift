@@ -40,7 +40,7 @@ struct SheetDetailView: View {
             }
             
             ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 20) {
+                        HStack(spacing: 12) {
                             ForEach(categoryItems, id: \.id) { category in
                                 CategoryItemView(title: category.title, icon: category.icon, color: category.color)
                                 
@@ -84,6 +84,7 @@ struct SheetDetailView: View {
                           .foregroundColor(.white)
                           .background(LinearGradient(colors: [.purple, .indigo], startPoint: .leading, endPoint: .trailing))
                           .clipShape(Capsule())
+                          .shadow(radius: 8, x: 10, y: 2)
             
                 }
                       
@@ -92,7 +93,7 @@ struct SheetDetailView: View {
             
             Spacer()
         } //: VSTACK
-            .padding()
+            .padding(20)
    
     }
 }
@@ -121,7 +122,7 @@ struct CategoryItemView: View {
             }
             
         } //: HSTACK
-        .frame(width: 50, height: 75)
+        .frame(width: 45, height: 75)
         .padding()
         .background(Color("BrokenWhite"))
         .cornerRadius(10)

@@ -36,9 +36,13 @@ struct ContentView: View {
                             .symbolRenderingMode(.multicolor)
                             .font(.title2)
                             .foregroundColor(.white)
-                    } .alert("This feature is not available", isPresented: $isShown) {
-                        Button("OK", role: .cancel) { }
-                    }
+                    } .alert("Not yet available", isPresented: $isShown, actions: {
+                        // Any view other than Button would be ignored
+                   
+                    }, message: {
+                        // Any view other than Text would be ignored
+                        Text("Currently on active development")
+                    })
                     
                     Text("Travel")
                         .font(.title2)
@@ -54,7 +58,7 @@ struct ContentView: View {
                     }.sheet(isPresented: $isShowingDetailSheet) {
                         VStack {
                             SheetDetailView()
-                                .presentationDetents([.fraction(0.45), .fraction(0.6)])
+                                .presentationDetents([.fraction(0.5), .fraction(0.6)])
                                 .presentationDragIndicator(.visible)
                                                             
                         }
